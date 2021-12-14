@@ -22,11 +22,15 @@ module.exports = {
     devtool: isDev && "eval-source-map",
 
     devServer: {
-        contentBase: path.resolve(__dirname, "site"),
+        static: {
+            directory: path.resolve(__dirname, "site")
+        },
         host: "localhost",
         port: 9090,
         historyApiFallback: true,
-        overlay: true,
+        client: {
+            overlay: true
+        },
         open: true
     },
 
